@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:49:35 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/17 14:19:09 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/19 17:20:15 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	main(int argc, char **argv)
 	stack_a = init_stack_a(stack_a, argc, argv);
 	stack_b = init_stack_b(stack_a, argc);
 	push_swap(stack_a, stack_b);
-	destroy_stacks(stack_a, stack_b);
+	// destroy_stacks(stack_a, stack_b);
 	return (0);
 }
