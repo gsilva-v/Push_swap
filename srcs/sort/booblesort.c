@@ -3,25 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   booblesort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matrodri <matrodri@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:15:41 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/16 15:28:01 by matrodri         ###   ########.fr       */
+/*   Updated: 2021/11/18 18:32:04 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*booble_sort(int *stack)
+int	*booble_sort(int *stack, int size)
 {
 	int	swap;
-	int	size;
 	int	i;
 	int	x;
 
 	i = 0;
-	size = 0;
-	while (stack[size++])
 	while (i < size)
 	{
 		x = i;

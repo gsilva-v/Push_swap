@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:56:23 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/18 13:20:34 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/19 13:40:31 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ long	ft_atoi(const char *str);
 int		ft_isdigit(char c);
 int		find_higher(t_stack *stack);
 int		find_low(t_stack *stack);
-
+int	stacklen(t_stack *stack);
 
 /*validates*/
 
@@ -65,7 +65,7 @@ void	destroy_stacks(t_stack *stack_a, t_stack *stack_b);
 
 /*sort stack*/
 
-int		*booble_sort(int *stack);
+int		*booble_sort(int *stack, int size);
 void	push_swap(t_stack *stack_a, t_stack *stack_b);
 
 /*moves*/

@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 21:32:53 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/10/30 17:54:41 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/19 16:49:54 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	rb_op(t_stack *stack)
 		top--;
 	}
 	stack->numbers[top] = first;
+	write(1, "rb\n", 3);
 }
