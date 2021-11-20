@@ -42,7 +42,7 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 	int count;
 	int i;
 	int index;
-	// int j;
+
 	index = 0;
 	count = 0;
 	i = stack_a->size;
@@ -50,40 +50,13 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 	{
 		if (stack_a->numbers[stack_a->top] < max && stack_a->numbers[stack_a->top] >= min)
 		{
-			// j = i;
-			// i = stack_a->top;
-			// printf("stack a antes:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_a->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
 			pb_op(stack_b, stack_a);
-			// i = stack_a->top;
-			// printf("stack a depois:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_a->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
 			count++;
-			// i = stack_b->top;
-			// printf("stack b:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_b->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
-			// i = j;
-			// sleep(1);
 		}	
 		else
 		{
 			find_low(stack_a);
-			if(stack_a->low_pos > stack_a->top / 2)
+			if(stack_a->low_pos >= stack_a->top / 2)
 				ra_op(stack_a);
 			else
 				rra_op(stack_a);
@@ -91,33 +64,7 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 		find_low(stack_a);
 		if (stack_a->low_pos == stack_a->top)
 		{
-			// j = i;
-			// i = stack_a->top;
-			// printf("stack a antes:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_a->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
 			pb_op(stack_b, stack_a);
-			// i = stack_a->top;
-			// printf("stack a depois:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_a->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
-			// i = stack_b->top;
-			// printf("stack b:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_b->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
-			// i = j;
 		}	
 		i--;
 	}
@@ -130,17 +77,6 @@ void	sort_b(t_stack *stack_b)
 
 	find_higher(stack_b);
 	pos = stack_b->high_pos;
-	// printf("high encontrado: %d\n", i);
-	// printf("high_pos de b: %d\n", stack_b->high_pos);
-	// printf("top de b: %d\n", stack_b->top);
-	// i = stack_b->top;
-	// printf("stack b:\n");
-	// while (i > -1)
-	// {
-	// 	printf("posição %d\t%d \n", i, stack_b->numbers[i--]);
-	// }
-	// printf("\n");
-
 	if(stack_b->high_pos >= stack_b->top / 2)
 	{
 			while (stack_b->high_pos <= stack_b->top)
@@ -153,16 +89,12 @@ void	sort_b(t_stack *stack_b)
 	{
 		while (stack_b->high_pos >= 0)
 		{
-			// printf("high_pos: %d\n", stack_b->high_pos);
 			rrb_op(stack_b);
 			stack_b->high_pos--;
-			// sleep(1);
 		}
 		if (stack_b->high_pos == 0)
 			rrb_op(stack_b);
 	}
-	// find_higher(stack_b);
-	// printf("high_pos de b depois da movimentação: %d\n", stack_b->high_pos);
 }
 
 
@@ -222,26 +154,29 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 			// printf("\n");
 			// i = j;
 			pa_op(stack_a, stack_b);
-			// sleep(1);
 
 		}
 		if(!is_sorted(stack_a))
 		{
-			// printf("index: %d\n", index);
 			while (index--)
 				pb_op(stack_b, stack_a);
 			
 		}
-		else
-		{
-			// printf("erro aqui na vez %d\n", i);
-			// printf("erro entrando aqui na vez %d\n", i);
-			while (stack_b->size)
-				pa_op(stack_a, stack_b);
-		}
+		// else
+		// {
+		// 	while (stack_b->size)
+		// 		pa_op(stack_a, stack_b);
+		// }
 		size = range[i];
 		i++;
 	}
+	if(is_rev_sorted(stack_b))
+	{
+		while (stack_b->size)
+			pa_op(stack_a, stack_b);
+	}
+	else
+		complex_sort(stack_a, stack_b);
 	// printf("saiu do loop\n");
 	// i = stack_a->top;
 	// printf("stack a final: \n");
