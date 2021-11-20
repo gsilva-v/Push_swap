@@ -65,6 +65,7 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 		if (stack_a->low_pos == stack_a->top)
 		{
 			pb_op(stack_b, stack_a);
+			count++;
 		}	
 		i--;
 	}
@@ -91,13 +92,16 @@ void	sort_b(t_stack *stack_b)
 	}
 	else
 	{
-		while (stack_b->high_pos >= 0)
-		{
-			rrb_op(stack_b);
-			stack_b->high_pos--;
-		}
 		if (stack_b->high_pos == 0)
 			rrb_op(stack_b);
+		else
+		{
+			while (stack_b->high_pos >= 0)
+			{
+				rrb_op(stack_b);
+				stack_b->high_pos--;
+			}
+		}	
 	}
 	// find_higher(stack_b);
 	// if(stack_b->high_pos == stack_b->top -1)
@@ -131,8 +135,10 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 	// 	size = 5;
 	// else if (stack_a->size >= 100 && stack_a->size <= 250)
 	// 	size = 20;
-	// else if (stack_a->size > 250)
-	// 	size = 50;
+	if (stack_a->size > 250 && stack_a->size < 400)
+		size = 50;
+	else if(stack_a->size >= 400)
+		size = 100;
 	ordered = create_sorted(ordered, stack_a);
 	range = create_range(ordered, range, size, stack_a);
 //outra função
