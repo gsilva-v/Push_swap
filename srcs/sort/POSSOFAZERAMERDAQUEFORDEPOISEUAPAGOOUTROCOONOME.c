@@ -93,8 +93,8 @@ void	sort_b(t_stack *stack_b)
 			rrb_op(stack_b);
 			stack_b->high_pos--;
 		}
-		// if (stack_b->high_pos == 0)
-		// 	rrb_op(stack_b);
+		if (stack_b->high_pos == 0)
+			rrb_op(stack_b);
 	}
 		i = stack_b->top;
 		// printf("stack b:\n");
