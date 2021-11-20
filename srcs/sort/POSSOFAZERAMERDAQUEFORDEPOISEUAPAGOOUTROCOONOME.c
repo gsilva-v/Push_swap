@@ -86,9 +86,9 @@ void	sort_b(t_stack *stack_b)
 				rb_op(stack_b);
 				stack_b->high_pos++;
 			}
-			find_higher(stack_b);
-			if(stack_b->high_pos == stack_b->top -1)
-				sb_op(stack_b);
+			// find_higher(stack_b);
+			// if(stack_b->high_pos == stack_b->top -1)
+			// 	sb_op(stack_b);
 	}
 	else
 	{
