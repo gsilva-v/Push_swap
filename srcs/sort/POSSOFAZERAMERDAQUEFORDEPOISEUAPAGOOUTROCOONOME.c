@@ -61,7 +61,7 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 			else
 				rra_op(stack_a);
 		}
-		find_low(stack_a);
+		min = find_low(stack_a);
 		if (stack_a->low_pos == stack_a->top)
 		{
 			pb_op(stack_b, stack_a);
@@ -178,13 +178,13 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 	// else
 	// 	complex_sort(stack_a, stack_b);
 	// printf("saiu do loop\n");
-	i = stack_a->top;
-	printf("stack a final: \n");
-	while (i > -1)
-	{
-		printf("posição %d\t%d \n", i, stack_a->numbers[i--]);
-	}
-	printf("\n");
+	// i = stack_a->top;
+	// printf("stack a final: \n");
+	// while (i > -1)
+	// {
+	// 	printf("posição %d\t%d \n", i, stack_a->numbers[i--]);
+	// }
+	// printf("\n");
 
 	// i = stack_b->top;
 	// printf("stack b:\n");
