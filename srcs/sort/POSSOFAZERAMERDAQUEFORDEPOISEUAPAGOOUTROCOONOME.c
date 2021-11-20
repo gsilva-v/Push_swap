@@ -162,29 +162,29 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 				pb_op(stack_b, stack_a);
 			
 		}
-		// else
-		// {
-		// 	while (stack_b->size)
-		// 		pa_op(stack_a, stack_b);
-		// }
+		else
+		{
+			while (stack_b->size)
+				pa_op(stack_a, stack_b);
+		}
 		size = range[i];
 		i++;
 	}
-	if(is_rev_sorted(stack_b))
-	{
-		while (stack_b->size)
-			pa_op(stack_a, stack_b);
-	}
-	else
-		complex_sort(stack_a, stack_b);
-	// printf("saiu do loop\n");
-	// i = stack_a->top;
-	// printf("stack a final: \n");
-	// while (i > -1)
+	// if(is_rev_sorted(stack_b) && is_sorted(stack_a))
 	// {
-	// 	printf("posição %d\t%d \n", i, stack_a->numbers[i--]);
+	// 	while (stack_b->size)
+	// 		pa_op(stack_a, stack_b);
 	// }
-	// printf("\n");
+	// else
+	// 	complex_sort(stack_a, stack_b);
+	// printf("saiu do loop\n");
+	i = stack_a->top;
+	printf("stack a final: \n");
+	while (i > -1)
+	{
+		printf("posição %d\t%d \n", i, stack_a->numbers[i--]);
+	}
+	printf("\n");
 
 	// i = stack_b->top;
 	// printf("stack b:\n");
