@@ -225,7 +225,7 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 			// sleep(1);
 
 		}
-		if(!is_sorted(stack_a) && is_rev_sorted(stack_b))
+		if(!is_sorted(stack_a))
 		{
 			// printf("index: %d\n", index);
 			while (index--)
