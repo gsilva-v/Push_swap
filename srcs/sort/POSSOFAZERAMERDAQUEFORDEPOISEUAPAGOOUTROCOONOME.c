@@ -65,7 +65,6 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 		if (stack_a->low_pos == stack_a->top)
 		{
 			pb_op(stack_b, stack_a);
-			count++;
 		}	
 		i--;
 	}
@@ -100,9 +99,9 @@ void	sort_b(t_stack *stack_b)
 		if (stack_b->high_pos == 0)
 			rrb_op(stack_b);
 	}
-	// find_higher(stack_b);
-	// if(stack_b->high_pos == stack_b->top -1)
-	// 	sb_op(stack_b);
+	find_higher(stack_b);
+	if(stack_b->high_pos == stack_b->top -1)
+		sb_op(stack_b);
 		// i = stack_b->top;
 		// printf("stack b:\n");
 		// while (i > -1)
@@ -161,8 +160,6 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 		size = index;
 		while (size--)
 		{
-			sort_b(stack_b);
-			pa_op(stack_a, stack_b);
 			// j = i;
 			// i = stack_b->top;
 			// printf("stack b:\n");
@@ -173,6 +170,8 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 			// }
 			// printf("\n");
 			// i = j;
+			sort_b(stack_b);
+			pa_op(stack_a, stack_b);
 
 		}
 		if(!is_sorted(stack_a))
