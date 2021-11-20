@@ -42,11 +42,10 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 	int count;
 	int i;
 	int index;
-	int signal;
-	int pos;
+	int next_low;
 
-	signal = 0;
-	pos = 0;
+	next_low = 0;
+
 	index = 0;
 	count = 0;
 	i = stack_a->size;
@@ -60,28 +59,13 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 		else
 		{		
 		//cuidar desse else
-			// find_low(stack_a);
-			// if(stack_a->low_pos >= stack_a->top / 2)
-				// ra_op(stack_a);
+			// next_low = find_next_low(stack_a, max);
+			// // printf("proxima posição: %d\n",next_low);
+			// // sleep(3);
+			// if(next_low >= stack_a->top / 2)
+				ra_op(stack_a);
 			// else
 			// 	rra_op(stack_a);
-			while (stack_a->numbers[pos])
-			{
-				if (stack_a->numbers[pos] < max && stack_a->numbers[pos] >= min)
-				{
-					signal = 1;
-					break ;
-				}
-				pos++;
-			}
-			if (signal == 1)
-			{
-				if (pos >= stack_a->top / 2)
-					ra_op(stack_a);
-				else
-					rra_op(stack_a);
-			}
-			
 		}
 		find_low(stack_a);
 		if (stack_a->low_pos == stack_a->top)
@@ -103,14 +87,14 @@ void	sort_b(t_stack *stack_b)
 	pos = stack_b->high_pos;
 	if(stack_b->high_pos >= stack_b->top / 2)
 	{
+			// if(stack_b->high_pos == stack_b->top -1)
+			// 	sb_op(stack_b);
 			while (stack_b->high_pos < stack_b->top)
 			{	
 				rb_op(stack_b);
 				stack_b->high_pos++;
 			}
 			// find_higher(stack_b);
-			// if(stack_b->high_pos == stack_b->top -1)
-			// 	sb_op(stack_b);
 	}
 	else
 	{

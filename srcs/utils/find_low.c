@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:18:29 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/03 15:53:43 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/20 16:24:57 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,18 @@ int	find_low(t_stack *stack)
 		i++;
 	}
 	return (smaller);
+}
+
+int	find_next_low(t_stack *stack, int max)
+{
+	int pos;
+	
+	pos = 0;
+	while (pos < stack->top)
+	{
+		if (stack->numbers[pos] < max)
+			return(pos);
+		pos++;
+	}
+	return(pos);
 }
