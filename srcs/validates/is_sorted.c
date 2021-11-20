@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 23:15:04 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/19 15:03:50 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/20 13:09:43 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,18 @@ int	is_sorted(t_stack *stack_a)
 	return (TRUE);
 }
 
+int	is_rev_sorted(t_stack *stack)
+{
+	int	i;
 
+	i = 0;
+	if (stack->top == -1)
+		return (TRUE);
+	while (i <= stack->top)
+	{
+		if (stack->numbers[i] < stack->numbers[i - 1])
+			return (FALSE);
+		i++;
+	}
+	return (TRUE);
+}

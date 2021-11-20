@@ -175,10 +175,18 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 	int	size;
 
 	size = stack_a->size / 5;
+// tentar melhorar a definição de size
+	// size = 2;
+	// if (stack_a->size > 10 && stack_a->size <= 99)
+	// 	size = 5;
+	// else if (stack_a->size >= 100 && stack_a->size <= 250)
+	// 	size = 20;
+	// else if (stack_a->size > 250)
+	// 	size = 50;
 	ordered = create_sorted(ordered, stack_a);
 	range = create_range(ordered, range, size, stack_a);
 //outra função
-	i = stack_a->top;
+	// i = stack_a->top;
 	// printf("stack a inicial:\n");
 	// while (i > -1)
 	// {
@@ -186,18 +194,19 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 	// 	i--;
 	// }
 	// printf("\n");
-	int min = find_low(stack_a);
+	// int min = find_low(stack_a);
 	// while (range[i])
 	// {
 	// 	printf("%d ",range[i++]);
 	// }
 	i = 0;
 	int j = 0;
+	size = find_low(stack_a);
 	while (!is_sorted(stack_a))
 	{
 		// printf("min: %d\n", min);
 		// printf("max: %d\n", range[i]);
-		index = select_push(stack_a, stack_b, range[i], min);
+		index = select_push(stack_a, stack_b, range[i], size);
 		size = index;
 		while (size--)
 		{
@@ -216,7 +225,7 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 			// sleep(1);
 
 		}
-		if(!is_sorted(stack_a))
+		if(!is_sorted(stack_a) && is_rev_sorted(stack_b))
 		{
 			// printf("index: %d\n", index);
 			while (index--)
@@ -230,7 +239,7 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 			while (stack_b->size)
 				pa_op(stack_a, stack_b);
 		}
-		min = range[i];
+		size = range[i];
 		i++;
 	}
 	// printf("saiu do loop\n");

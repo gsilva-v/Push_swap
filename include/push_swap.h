@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:56:23 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/19 13:40:31 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/20 13:06:10 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	stacklen(t_stack *stack);
 
 int		validate_args(int argc, char **argv);
 int		is_sorted(t_stack *stack_a);
+int	is_rev_sorted(t_stack *stack);
 int		is_number(int argc, char **argv);
 int		is_different(int argc, char **argv);
 int		is_range(int argc, char **argv);
