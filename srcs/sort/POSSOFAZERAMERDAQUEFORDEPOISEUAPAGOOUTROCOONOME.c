@@ -58,13 +58,13 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 		else
 		{		
 		//cuidar desse else
-			// next_low = find_next_low(stack_a, max);
-			// // printf("proxima posição: %d\n",next_low);
-			// // sleep(3);
-			// if(next_low >= stack_a->top / 2)
+		// 	next_low = find_next_low(stack_a, max);
+			// printf("proxima posição: %d\n",next_low);
+			// sleep(3);
+			// if(next_low > stack_a->top / 2)
 				ra_op(stack_a);
 			// else
-			// 	rra_op(stack_a);
+				// rra_op(stack_a);
 		}
 		find_low(stack_a);
 		if (stack_a->low_pos == stack_a->top)
