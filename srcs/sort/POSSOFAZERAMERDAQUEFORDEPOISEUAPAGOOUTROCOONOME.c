@@ -61,7 +61,7 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 			else
 				rra_op(stack_a);
 		}
-		min = find_low(stack_a);
+		find_low(stack_a);
 		if (stack_a->low_pos == stack_a->top)
 		{
 			pb_op(stack_b, stack_a);
