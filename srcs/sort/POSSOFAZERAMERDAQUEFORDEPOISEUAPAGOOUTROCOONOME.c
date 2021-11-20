@@ -81,7 +81,7 @@ void	sort_b(t_stack *stack_b)
 	pos = stack_b->high_pos;
 	if(stack_b->high_pos >= stack_b->top / 2)
 	{
-			while (stack_b->high_pos < stack_b->top)
+			while (stack_b->high_pos <= stack_b->top)
 			{	
 				rb_op(stack_b);
 				stack_b->high_pos++;
