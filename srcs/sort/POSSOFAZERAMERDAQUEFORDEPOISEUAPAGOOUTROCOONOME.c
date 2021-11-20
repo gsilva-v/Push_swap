@@ -42,7 +42,11 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 	int count;
 	int i;
 	int index;
+	int signal;
+	int pos;
 
+	signal = 0;
+	pos = 0;
 	index = 0;
 	count = 0;
 	i = stack_a->size;
@@ -58,9 +62,26 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 		//cuidar desse else
 			// find_low(stack_a);
 			// if(stack_a->low_pos >= stack_a->top / 2)
-				ra_op(stack_a);
+				// ra_op(stack_a);
 			// else
 			// 	rra_op(stack_a);
+			while (stack_a->numbers[pos])
+			{
+				if (stack_a->numbers[pos] < max && stack_a->numbers[pos] >= min)
+				{
+					signal = 1;
+					break ;
+				}
+				pos++;
+			}
+			if (signal == 1)
+			{
+				if (pos >= stack_a->top / 2)
+					ra_op(stack_a);
+				else
+					rra_op(stack_a);
+			}
+			
 		}
 		find_low(stack_a);
 		if (stack_a->low_pos == stack_a->top)
