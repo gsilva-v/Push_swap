@@ -42,10 +42,9 @@ int	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 	int count;
 	int i;
 	int index;
-	int next_low;
+	// int next_low;
 
-	next_low = 0;
-
+	// next_low = 0;
 	index = 0;
 	count = 0;
 	i = stack_a->size;
@@ -87,14 +86,11 @@ void	sort_b(t_stack *stack_b)
 	pos = stack_b->high_pos;
 	if(stack_b->high_pos >= stack_b->top / 2)
 	{
-			// if(stack_b->high_pos == stack_b->top -1)
-			// 	sb_op(stack_b);
 			while (stack_b->high_pos < stack_b->top)
 			{	
 				rb_op(stack_b);
 				stack_b->high_pos++;
 			}
-			// find_higher(stack_b);
 	}
 	else
 	{
@@ -109,9 +105,6 @@ void	sort_b(t_stack *stack_b)
 			}
 		}	
 	}
-	// find_higher(stack_b);
-	// if(stack_b->high_pos == stack_b->top -1)
-	// 	sb_op(stack_b);
 		// i = stack_b->top;
 		// printf("stack b:\n");
 		// while (i > -1)
