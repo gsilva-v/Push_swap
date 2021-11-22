@@ -163,41 +163,41 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 		// printf("max: %d\n", range[i]);
 		index = select_push(stack_a, stack_b, range[i], size);
 		size = index;
-		while (size--)
-		{
-			// j = i;
-			// i = stack_b->top;
-			// printf("stack b:\n");
-			// while (i > -1)
-			// {
-			// 	printf("posição %d\t%d \n", i, stack_b->numbers[i]);
-			// 	i--;
-			// }
-			// printf("\n");
-			// i = j;
-			sort_b(stack_b);
-			pa_op(stack_a, stack_b);
+		// while (size--)
+		// {
+		// 	// j = i;
+		// 	// i = stack_b->top;
+		// 	// printf("stack b:\n");
+		// 	// while (i > -1)
+		// 	// {
+		// 	// 	printf("posição %d\t%d \n", i, stack_b->numbers[i]);
+		// 	// 	i--;
+		// 	// }
+		// 	// printf("\n");
+		// 	// i = j;
+		// 	sort_b(stack_b);
+		// 	pa_op(stack_a, stack_b);
 
-		}
-		if(!is_sorted(stack_a))
-		{
-			while (index--)
-				pb_op(stack_b, stack_a);
+		// }
+		// if(!is_sorted(stack_a))
+		// {
+		// 	while (index--)
+		// 		pb_op(stack_b, stack_a);
 			
-		}
-		else
-		{
-			while (stack_b->size)
-				pa_op(stack_a, stack_b);
-		}
+		// }
+		// else
+		// {
+		// 	while (stack_b->size)
+		// 		pa_op(stack_a, stack_b);
+		// }
 		size = range[i];
 		i++;
 	}
-	// if(is_rev_sorted(stack_b) && is_sorted(stack_a))
-	// {
-	// 	while (stack_b->size)
-	// 		pa_op(stack_a, stack_b);
-	// }
+	while (stack_b->top > -1)
+	{
+		sort_b(stack_b);
+		pa_op(stack_a, stack_b);
+	}	
 	// else
 	// 	complex_sort(stack_a, stack_b);
 	// printf("saiu do loop\n");
