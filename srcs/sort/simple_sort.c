@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:29:10 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/05 21:56:54 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/22 16:23:45 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ void	simple_sort(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->top == 2)
 		move_top_two(stack_a);
 	else if (stack_a->top >= 3 && stack_a->top <= 5)
-			middle_sort(stack_a, stack_b);
+		middle_sort(stack_a, stack_b);
 }

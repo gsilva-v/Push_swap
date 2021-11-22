@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 14:22:37 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/05 22:21:24 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/22 16:23:09 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	move_top_two(t_stack *stack_a)
 		sa_op(stack_a);
 		ra_op(stack_a);
 	}
-	else if (stack_a->high_pos == 0  && stack_a->low_pos == 1)
+	else if (stack_a->high_pos == 0 && stack_a->low_pos == 1)
 		sa_op(stack_a);
 }

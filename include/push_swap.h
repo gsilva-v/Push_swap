@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:56:23 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/20 16:15:30 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/22 16:18:45 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ long	ft_atoi(const char *str);
 int		ft_isdigit(char c);
 int		find_higher(t_stack *stack);
 int		find_low(t_stack *stack);
-int	find_next_low(t_stack *stack, int max);
-int	stacklen(t_stack *stack);
+int		find_next_low(t_stack *stack, int max);
+int		stacklen(t_stack *stack);
 
 /*validates*/
 
 int		validate_args(int argc, char **argv);
 int		is_sorted(t_stack *stack_a);
-int	is_rev_sorted(t_stack *stack);
+int		is_rev_sorted(t_stack *stack);
 int		is_number(int argc, char **argv);
 int		is_different(int argc, char **argv);
 int		is_range(int argc, char **argv);
@@ -85,14 +85,13 @@ void	rrb_op(t_stack *stack);
 void	rrr_op(t_stack *stack_a, t_stack *stack_b);
 void	move_top_two(t_stack *stack_a);
 
-
 /*sorting*/
 
 void	complex_sort(t_stack *stack_, t_stack *stack_b);
 void	simple_sort(t_stack *stack_a, t_stack *stack_b);
 void	sorting(t_stack *stack_a, t_stack *stack_b);
-int   	what_moves(t_stack *stack_a, int top_b);
-void    what_do(t_stack *stack_a, t_stack *stack_b);
+int		what_moves(t_stack *stack_a, int top_b);
+void	what_do(t_stack *stack_a, t_stack *stack_b);
 
 /*validates*/
 

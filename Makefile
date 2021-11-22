@@ -28,7 +28,7 @@ SRCS = $(PATH_FREE)destroy_stacks.c\
 	$(PATH_MAIN)push_swap.c\
 	$(PATH_MOVE)move_top_two.c\
 	$(PATH_SORT)booblesort.c $(PATH_SORT)sort_stack.c $(PATH_SORT)simple_sort.c\
-	$(PATH_SORT)POSSOFAZERAMERDAQUEFORDEPOISEUAPAGOOUTROCOONOME.c\
+	$(PATH_SORT)complex_sort.c\
 	$(PATH_SWAP)pb_swap.c $(PATH_SWAP)pa_swap.c $(PATH_SWAP)sa_swap.c\
 	$(PATH_SWAP)sb_swap.c $(PATH_SWAP)ss_swap.c $(PATH_SWAP)ra_swap.c\
 	$(PATH_SWAP)rb_swap.c $(PATH_SWAP)rr_swap.c $(PATH_SWAP)rra_swap.c\
