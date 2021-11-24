@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:56:23 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/22 16:18:45 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:34:18 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int		stacklen(t_stack *stack);
 
 int		validate_args(int argc, char **argv);
 int		is_sorted(t_stack *stack_a);
-int		is_rev_sorted(t_stack *stack);
 int		is_number(int argc, char **argv);
 int		is_different(int argc, char **argv);
 int		is_range(int argc, char **argv);
@@ -87,18 +86,16 @@ void	move_top_two(t_stack *stack_a);
 
 /*sorting*/
 
-void	complex_sort(t_stack *stack_, t_stack *stack_b);
-void	simple_sort(t_stack *stack_a, t_stack *stack_b);
 void	sorting(t_stack *stack_a, t_stack *stack_b);
-int		what_moves(t_stack *stack_a, int top_b);
-void	what_do(t_stack *stack_a, t_stack *stack_b);
+void	simple_sort(t_stack *stack_a, t_stack *stack_b);
+void	complex_sort(t_stack *stack_, t_stack *stack_b);
 
-/*validates*/
+/*complex utils*/
 
-int		validate_args(int argc, char **argv);
-int		is_sorted(t_stack *stack_a);
-int		is_number(int argc, char **argv);
-int		is_different(int argc, char **argv);
-int		is_range(int argc, char **argv);
+int		set_range(t_stack *stack_a, int size_range);
+int		*create_sorted(int *ordered, t_stack *stack_a);
+int		*create_range(int *ordered, int *range, int size, t_stack *stack_a);
+void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min);
+void	sort_b(t_stack *stack_b);
 
 #endif

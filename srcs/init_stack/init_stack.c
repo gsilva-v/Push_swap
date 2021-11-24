@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 15:19:41 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/22 16:05:49 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:26:59 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*init_stack_a(t_stack *stack, int argc, char **argv)
 {
-	stack = malloc(sizeof(t_stack));
+	stack = ft_calloc(sizeof(t_stack), 1);
 	stack->capacity = argc - 2;
 	stack->size = argc - 1;
 	stack->top = -1;

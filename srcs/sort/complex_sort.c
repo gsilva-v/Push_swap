@@ -6,47 +6,38 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/22 16:28:54 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/24 11:34:51 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*create_sorted(int *ordered, t_stack *stack_a)
+void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int	index;
-
-	ordered = (int *)malloc(sizeof(int *) * stack_a->capacity);
-	if (!ordered)
-		return (NULL);
-	index = 0;
-	while (index < stack_a->size)
-	{
-		ordered[index] = stack_a->numbers[index];
-		index++;
-	}
-	ordered = booble_sort(ordered, stack_a->size);
-	return (ordered);
-}
-
-int	*create_range(int *ordered, int *range, int size, t_stack *stack_a)
-{
-	int	index;
+	int	*ordered;
+	int	*range;
 	int	i;
+	int	size;
+	int	size_range;
 
-	range = (int *)ft_calloc(sizeof(int *), size);
+	size_range = set_range(stack_a, size_range);
+	ordered = create_sorted(ordered, stack_a);
+	range = create_range(ordered, range, size_range + 1, stack_a);
 	i = 0;
-	index = 0;
-	while (index <= stack_a->top)
+	size = find_low(stack_a);
+	while (!is_sorted(stack_a))
 	{
-		if (ordered[index] % size == 0)
-		{
-			range[i] = ordered[index];
-			i++;
-		}
-		index++;
+		select_push(stack_a, stack_b, range[i], size);
+		size = range[i];
+		i++;
 	}
-	return (range);
+	while (stack_b->top > -1)
+	{
+		sort_b(stack_b);
+		pa_op(stack_a, stack_b);
+	}
+	free(ordered);
+	free(range);
 }
 
 void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
@@ -56,7 +47,7 @@ void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 
 	next_low = 0;
 	i = stack_a->size;
-	while (i > 0)
+	while (i > 1)
 	{
 		if (stack_a->numbers[stack_a->top] < max
 			&& stack_a->numbers[stack_a->top] >= min)
@@ -103,33 +94,4 @@ void	sort_b(t_stack *stack_b)
 			}
 		}	
 	}
-}
-
-void	complex_sort(t_stack *stack_a, t_stack *stack_b)
-{
-	int	*ordered;
-	int	*range;
-	int	i;
-	int	size;
-
-	size = 20;
-	if (stack_a->size >= 400)
-		size = 40;
-	ordered = create_sorted(ordered, stack_a);
-	range = create_range(ordered, range, size, stack_a);
-	i = 0;
-	size = find_low(stack_a);
-	while (!is_sorted(stack_a))
-	{
-		select_push(stack_a, stack_b, range[i], size);
-		size = range[i];
-		i++;
-	}
-	while (stack_b->top > -1)
-	{
-		sort_b(stack_b);
-		pa_op(stack_a, stack_b);
-	}
-	free(ordered);
-	free(range);
 }
