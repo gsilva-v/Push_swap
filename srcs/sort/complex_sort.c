@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/24 11:34:51 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:24:28 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	sort_b(t_stack *stack_b)
 			{
 				rrb_op(stack_b);
 				stack_b->high_pos--;
-			}
+			}w
 		}	
 	}
 }

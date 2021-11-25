@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:20:37 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/24 12:56:34 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:24:36 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 int	set_range(t_stack *stack_a, int size_range)
 {
 	size_range = 20;
-	if (stack_a->size > 100)
-		size_range = stack_a->size / 5;
 	if (stack_a->size >= 400)
-		size_range = 40;
+		size_range = 45;
 	return (size_range);
 }
 
