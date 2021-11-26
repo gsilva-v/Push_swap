@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 13:09:27 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:31:30 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (stack_b->top > -1)
 	{
-		
 		sort_b(stack_a, stack_b);
+		
 		pa_op(stack_a, stack_b);
 	}
 	free(ordered);
@@ -85,25 +85,30 @@ void put_in_top(t_stack *stack_a, t_stack *stack_b, int to_top_a, int to_top_b)
 
 	index_a = get_right_position(stack_a, to_top_a);
 	index_b = get_right_position(stack_b, to_top_b);
-	if (index_a > -1)
-	{
-		if(index_a >= stack_a->size / 2)
-			while(stack_a->numbers[stack_a->top] != to_top_a)
-				ra_op(stack_a);
-		else
-			while(stack_a->numbers[0] != to_top_a)
-				rra_op(stack_a);
-			rra_op(stack_a);
-	}
+	// printf("index_a: %d\n", index_a);
+	// printf("index_b: %d\n", index_b);
 	if (index_b > -1)
 	{
 		if(index_b >= stack_b->size / 2)
 			while(stack_b->numbers[stack_b->top] != to_top_b)
 				rb_op(stack_b);
 		else
-			while(stack_b->numbers[0] != to_top_b)
+			while(stack_b->numbers[stack_b->top] != to_top_b)
+			{
+				printf("%d\n", to_top_b);
+				printf("%d\n", stack_b->numbers[stack_b->top]);
 				rrb_op(stack_b);
-			rrb_op(stack_b);
+				sleep(1 / 2);
+			}
+	}
+	if (index_a > -1)
+	{
+		if(index_a >= stack_a->size / 2)
+			while(stack_a->numbers[stack_a->top] != to_top_a)
+				ra_op(stack_a);
+		else
+			while(stack_a->numbers[stack_a->top] != to_top_a)
+				rra_op(stack_a);
 	}
 }
 
@@ -120,7 +125,7 @@ void	sort_b(t_stack *stack_a, t_stack *stack_b)
 	moves = INT_MAX;
 	while(i <= stack_b->size)
 	{
-		printf("parou aqui\n");
+		// printf("parou aqui\n");
 		aux_b = stack_b->numbers[i];
 		pos = get_right_position(stack_a, aux_b);
 		aux_a = stack_a->numbers[pos];
