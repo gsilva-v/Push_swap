@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:56:23 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 13:01:55 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 18:49:40 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	complex_sort(t_stack *stack_, t_stack *stack_b);
 int		set_range(t_stack *stack_a, int size_range);
 int		*create_sorted(int *ordered, t_stack *stack_a);
 int		*create_range(int *ordered, int *range, int size, t_stack *stack_a);
-void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min);
+void	select_push(t_stack *stack_a, t_stack *stack_b, int max);
 void	sort_b(t_stack *stack_a, t_stack *stack_b);
 
 int	moves_count(t_stack *stack, int value);

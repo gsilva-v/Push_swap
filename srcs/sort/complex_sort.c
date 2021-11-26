@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 13:31:30 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:11:21 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,63 @@
 void	complex_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	*ordered;
-	int	*range;
+	int	range;
 	int	i;
 	int	size;
 	int	size_range;
 
-	size_range = set_range(stack_a, size_range);
+	// size_range = set_range(stack_a, size_range);
+	size_range = stack_a->size / 2;
 	ordered = create_sorted(ordered, stack_a);
-	range = create_range(ordered, range, size_range + 1, stack_a);
+	range = ordered[stack_a->size / 2];
 	i = 0;
 	size = find_low(stack_a);
-	while (!is_sorted(stack_a))
-	{
-		select_push(stack_a, stack_b, range[i], size);
-		size = range[i];
-		i++;
-	}
-	while (stack_b->top > -1)
+	// while (!is_sorted(stack_a))
+	// {
+		select_push(stack_a, stack_b, range);
+	// }
+	// printf("segundo loop\n");
+	while (stack_b->size)
 	{
 		sort_b(stack_a, stack_b);
-		
 		pa_op(stack_a, stack_b);
+		// i = stack_a->top;
+		// printf("stack a:\n");
+		// while(i > -1)
+		// {
+		// 	printf("posição %d: %d\n", i, stack_a->numbers[i]);
+		// 	i--;
+		// }
+		// i = stack_b->top;
+		// printf("stack b:\n");
+		// while(i > -1)
+		// {
+		// 	printf("posição %d: %d\n", i, stack_b->numbers[i]);
+		// 	i--;
+		// }
+		// exit(0);
 	}
 	free(ordered);
-	free(range);
 }
 
-void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
+void	select_push(t_stack *stack_a, t_stack *stack_b, int max)
 {
 	int	i;
 	int	next_low;
 
 	next_low = 0;
-	i = stack_a->size;
-	while (i > 1)
+	i = (stack_a->size / 2);
+	stack_a->high = find_higher(stack_a);
+	stack_a->low = find_low(stack_a);
+	// printf ("high: %d\n", stack_a->high);
+	// printf ("low: %d\n", stack_a->low);
+	// printf("max: %d\n", max);
+	// printf("min: %d\n", min);
+	// exit(0);
+
+	while (stack_a->top > i)
 	{
-		if (stack_a->numbers[stack_a->top] < max
-			&& stack_a->numbers[stack_a->top] >= min)
+		if (stack_a->numbers[stack_a->top] < max)
 			pb_op(stack_b, stack_a);
 		else
 		{
@@ -61,10 +81,9 @@ void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min)
 			else
 				rra_op(stack_a);
 		}
-		find_low(stack_a);
-		if (stack_a->low_pos == stack_a->top)
-			pb_op(stack_b, stack_a);
-		i--;
+		// find_low(stack_a);
+		// if (stack_a->low_pos == stack_a->top)
+		// 	pb_op(stack_b, stack_a);
 	}
 }
 
@@ -98,7 +117,7 @@ void put_in_top(t_stack *stack_a, t_stack *stack_b, int to_top_a, int to_top_b)
 				printf("%d\n", to_top_b);
 				printf("%d\n", stack_b->numbers[stack_b->top]);
 				rrb_op(stack_b);
-				sleep(1 / 2);
+				// sleep(1 / 2);
 			}
 	}
 	if (index_a > -1)
@@ -137,5 +156,5 @@ void	sort_b(t_stack *stack_a, t_stack *stack_b)
 		}
 		i++;
 	}
-	put_in_top(stack_a, stack_b, stack_a->best_nbr, stack_b->best_nbr);
+	// put_in_top(stack_a, stack_b, stack_a->best_nbr, stack_b->best_nbr);
 }

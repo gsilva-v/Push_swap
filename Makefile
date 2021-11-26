@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = clang
-CFLAGS = -g
+CFLAGS = -g3
 
 
 RM = rm -rf
