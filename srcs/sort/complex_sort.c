@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 19:13:09 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:16:23 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ void	select_push(t_stack *stack_a, t_stack *stack_b, int max)
 
 	while (stack_a->top > i)
 	{
-		if (stack_a->numbers[stack_a->top] < max)
+		if (stack_a->numbers[stack_a->top] < max
+			&& stack_a->numbers[stack_a->top] != stack_a->high
+			&& stack_a->numbers[stack_a->top] != stack_a->low)
 			pb_op(stack_b, stack_a);
 		else
 		{
@@ -84,7 +86,9 @@ void	select_push(t_stack *stack_a, t_stack *stack_b, int max)
 	}
 	while (stack_a->top > 2)
 	{
-		if (stack_a->numbers[stack_a->top] > max)
+		if (stack_a->numbers[stack_a->top] > max
+			&& stack_a->numbers[stack_a->top] != stack_a->high
+			&& stack_a->numbers[stack_a->top] != stack_a->low)
 			pb_op(stack_b, stack_a);
 		else
 		{
