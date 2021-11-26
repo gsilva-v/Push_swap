@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 19:16:23 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:29:42 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,14 +124,17 @@ void put_in_top(t_stack *stack_a, t_stack *stack_b, int to_top_a, int to_top_b)
 	{
 		if(index_b >= stack_b->size / 2)
 			while(stack_b->numbers[stack_b->top] != to_top_b)
+			{
+				printf("b %d\n", to_top_b);
+				// printf("%d\n", stack_b->numbers[stack_b->top]);
 				rb_op(stack_b);
+				// sleep(1);
+				
+			}
 		else
 			while(stack_b->numbers[stack_b->top] != to_top_b)
 			{
-				printf("%d\n", to_top_b);
-				printf("%d\n", stack_b->numbers[stack_b->top]);
 				rrb_op(stack_b);
-				// sleep(1 / 2);
 			}
 	}
 	if (index_a > -1)
@@ -156,7 +159,7 @@ void	sort_b(t_stack *stack_a, t_stack *stack_b)
 	pos = 0;
 	i = 0;
 	moves = INT_MAX;
-	while(i <= stack_b->size)
+	while(i <= stack_b->top)
 	{
 		// printf("parou aqui\n");
 		aux_b = stack_b->numbers[i];
@@ -170,5 +173,5 @@ void	sort_b(t_stack *stack_a, t_stack *stack_b)
 		}
 		i++;
 	}
-	// put_in_top(stack_a, stack_b, stack_a->best_nbr, stack_b->best_nbr);
+	put_in_top(stack_a, stack_b, stack_a->best_nbr, stack_b->best_nbr);
 }
