@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:20:37 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/24 18:24:36 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:29:46 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,29 @@ int	*create_range(int *ordered, int *range, int size, t_stack *stack_a)
 		index++;
 	}
 	return (range);
+}
+
+int	get_position(t_stack *stack, int value)
+{
+	int i;
+
+	i = 0;
+	while(i <= stack->top)
+	{
+		if(stack->numbers[i] == value)
+			return (i);
+		i++;
+	}
+	return(INT_MAX);
+}
+
+int	moves_count(t_stack *stack, int value)
+{
+	int moves;
+
+	moves = get_position(stack, value);
+	if (moves >= stack->top / 2)
+		return (moves);
+	else
+		return ((stack->size + 1) - moves);
 }
