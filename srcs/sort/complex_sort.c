@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 16:27:50 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 19:11:21 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/26 19:13:09 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,19 @@ void	select_push(t_stack *stack_a, t_stack *stack_b, int max)
 			else
 				rra_op(stack_a);
 		}
-		// find_low(stack_a);
-		// if (stack_a->low_pos == stack_a->top)
-		// 	pb_op(stack_b, stack_a);
+	}
+	while (stack_a->top > 2)
+	{
+		if (stack_a->numbers[stack_a->top] > max)
+			pb_op(stack_b, stack_a);
+		else
+		{
+			next_low = find_next_low(stack_a, max);
+			if (next_low > stack_a->top / 2)
+				ra_op(stack_a);
+			else
+				rra_op(stack_a);
+		}
 	}
 }
 
