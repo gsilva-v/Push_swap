@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:56:23 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 18:49:40 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/01/13 12:31:06 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
-# include <stdio.h>//tirar depois
 
 # define TRUE 1
 # define FALSE 0
@@ -28,13 +27,11 @@ typedef struct s_stack
 	int	*numbers;
 	int	size;
 	int	capacity;
-	int	**range;
 	int	top;
 	int	high;
 	int	low;
 	int	high_pos;
 	int	low_pos;
-	int	best_nbr;
 }	t_stack;
 
 /*utils*/
@@ -46,12 +43,15 @@ int		find_higher(t_stack *stack);
 int		find_low(t_stack *stack);
 int		find_next_low(t_stack *stack, int max);
 int		stacklen(t_stack *stack);
+char	*ft_strjoin(char *s1, const char *s2);
+int		ft_strlen(const char *str);
 
 /*validates*/
 
 int		validate_args(int argc, char **argv);
 int		is_sorted(t_stack *stack_a);
 int		is_number(int argc, char **argv);
+int		is_long_num(char *s);
 int		is_different(int argc, char **argv);
 int		is_range(int argc, char **argv);
 
@@ -96,10 +96,8 @@ void	complex_sort(t_stack *stack_, t_stack *stack_b);
 int		set_range(t_stack *stack_a, int size_range);
 int		*create_sorted(int *ordered, t_stack *stack_a);
 int		*create_range(int *ordered, int *range, int size, t_stack *stack_a);
-void	select_push(t_stack *stack_a, t_stack *stack_b, int max);
-void	sort_b(t_stack *stack_a, t_stack *stack_b);
-
-int	moves_count(t_stack *stack, int value);
-int	get_position(t_stack *stack, int value);
+void	select_push(t_stack *stack_a, t_stack *stack_b, int max, int min);
+void	sort_b(t_stack *stack_b);
+void	clear_b(t_stack *stack_a, t_stack *stack_b);
 
 #endif

@@ -1,8 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/13 12:30:23 by gsilva-v          #+#    #+#              #
+#    Updated: 2022/01/13 12:30:24 by gsilva-v         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap
 
-CC = clang
-CFLAGS = -g3
-
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -g
 
 RM = rm -rf
 
@@ -35,6 +46,7 @@ SRCS = $(PATH_FREE)destroy_stacks.c\
 	$(PATH_SWAP)rrb_swap.c $(PATH_SWAP)rrr_swap.c \
 	$(PATH_UTILS)ft_calloc.c $(PATH_UTILS)ft_atoi.c $(PATH_UTILS)ft_isdigit.c\
 	$(PATH_UTILS)find_higher.c $(PATH_UTILS)find_low.c $(PATH_UTILS)stacklen.c\
+	$(PATH_UTILS)strjoin.c $(PATH_UTILS)strlen.c\
 	$(PATH_VALID)is_sorted.c $(PATH_VALID)is_number.c $(PATH_VALID)is_different.c \
 	$(PATH_VALID)is_range.c $(PATH_VALID)verify.c\
 	$(PATH_WRITE)atribute_stack.c

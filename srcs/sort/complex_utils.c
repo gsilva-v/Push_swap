@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 11:20:37 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 12:29:46 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/01/12 09:59:46 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	set_range(t_stack *stack_a, int size_range)
 {
-	size_range = 20;
+	size_range = 16;
 	if (stack_a->size >= 400)
-		size_range = 45;
+		size_range = 42;
 	return (size_range);
 }
 
@@ -57,27 +57,11 @@ int	*create_range(int *ordered, int *range, int size, t_stack *stack_a)
 	return (range);
 }
 
-int	get_position(t_stack *stack, int value)
+void	clear_b(t_stack *stack_a, t_stack *stack_b)
 {
-	int i;
-
-	i = 0;
-	while(i <= stack->top)
+	while (stack_b->top > -1)
 	{
-		if(stack->numbers[i] == value)
-			return (i);
-		i++;
+		sort_b(stack_b);
+		pa_op(stack_a, stack_b);
 	}
-	return(INT_MAX);
-}
-
-int	moves_count(t_stack *stack, int value)
-{
-	int moves;
-
-	moves = get_position(stack, value);
-	if (moves >= stack->top / 2)
-		return (moves);
-	else
-		return ((stack->size + 1) - moves);
 }

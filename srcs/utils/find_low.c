@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:18:29 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/26 14:01:08 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2021/11/22 16:20:43 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,10 @@ int	find_next_low(t_stack *stack, int max)
 {
 	int	pos;
 
-	stack->high = find_higher(stack);
-	stack->low = find_low(stack);
 	pos = stack->top;
 	while (pos > -1)
 	{
-		if (stack->numbers[pos] < max
-		&& pos != stack->high_pos
-		&& pos != stack->low_pos)
+		if (stack->numbers[pos] < max)
 			return (pos);
 		pos--;
 	}

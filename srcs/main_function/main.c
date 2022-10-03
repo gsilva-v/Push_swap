@@ -6,7 +6,7 @@
 /*   By: gsilva-v <gsilva-v@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 17:49:35 by gsilva-v          #+#    #+#             */
-/*   Updated: 2021/11/22 15:19:50 by gsilva-v         ###   ########.fr       */
+/*   Updated: 2022/01/13 12:10:48 by gsilva-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	if (!validate_args(argc, argv))
